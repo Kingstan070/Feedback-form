@@ -39,22 +39,20 @@
 
 {% block content %}
 <div class="mx-auto" style="width: 40%; background-color: white; padding: 20px; border-radius: 10px; margin-top: 10%;">
-    <form action="#" method="POST">
-    <div class="form-group">
+
+    <form>
+    <div class="form-group" action="#" method="POST">
         <label for="exampleInputEmail1">Email address</label>
-        <input type="email" name="student-email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" required>
-        <small id="emailHelp" class="form-text text-muted">Mail ID which you gave to your Class Incharge</small>
-        {% with messages = get_flashed_messages() %}  
-        {% if messages %}  
-                {% for message in messages %}  
-                    <p>{{ message }}</p>  
-                {% endfor %}  
-        {% endif %}  
-        {% endwith %} 
+        <input type="email" name="teacher-email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+        <small id="emailHelp" class="form-text text-muted">Email address with mangalam domain</small>
     </div>
-    <input type="submit" value="Submit" class="btn btn-primary"></input>
-    <a  href="{{ url_for('teacher_login') }}">
-    <button type="button" class="btn btn-secondary float-right">Teacher's Login</button>
+    <div class="form-group">
+        <label for="exampleInputPassword1">Password</label>
+        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+        <a  href="{{ url_for('index') }}">
+    <button type="button" class="btn btn-secondary float-right">Student's Login</button>
     </a>
     </form>
 </div>

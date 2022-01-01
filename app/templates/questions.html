@@ -1,0 +1,73 @@
+{% extends "layout/base.html" %}
+{% block title %}Home Page{% endblock %}
+
+{% block style %}
+<style>
+    .quiz-form{
+        padding: 1em;
+    }
+
+    li{
+        list-style-type: none;
+    }
+
+    .form-list{
+        margin-left: 2em;
+        margin-top: 0.5em;
+    }
+</style>
+{% endblock %}
+
+{% block navbar %}
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <a class="navbar-brand" href="#">FeedBack</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarText">
+    <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+        <a class="nav-link" href="#">Home<span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+        <a class="nav-link" href="#">About</a>
+        </li>
+        <!-- <li class="nav-item">
+        <a class="nav-link" href="#"></a>
+        </li> -->
+    </ul>
+    <span class="navbar-text">
+        {{ usr }}
+    </span>
+    </div>
+</nav>
+{% endblock %}
+
+
+{% block content %}
+<div class="quiz-form container">
+    <form name="quiz" method="post" name="buttons" id="quiz" class="form-group">
+
+        <li><div class="question lead">alakdj alsdfjl aldfjk </div></li>
+        <div class="form-list">
+            <input class="form-check-input" type="radio" name="group1" value="wrong"> Josh<br>
+            <input class="form-check-input" type="radio" name="group1" value="wrong"> Amanda<br>
+            <input class="form-check-input" type="radio" name="group1" value="correct"> Josh y Amanda<hr>
+        </div>
+        <li><div class="question lead">asdkjfla ldfkjasl foasidjfl</div></li>
+        <div class="form-list">
+            <input class="form-check-input" type="radio" name="group2" value="wrong">Un familia amigo<br>
+            <input class="form-check-input" type="radio" name="group2" value="wrong">Un gato<br>
+            <input class="form-check-input" type="radio" name="group2" value="correct">Un amable joven de la agencia de bienes raíces<hr>
+        </div>
+        <li><div class="question lead">laksdf laksdf lkasdfl laskdjf</div></li>
+        <div class="form-list">
+            <input class="form-check-input" type="radio" name="group3" value="wrong">Josh<br>
+            <input class="form-check-input" type="radio" name="group3" value="wrong"> Petey<br>
+            <input class="form-check-input" type="radio" name="group3" value="correct" >Josh y Petey<hr>    
+        </div>
+        <input type="submit" value="Submit" class="btn btn-primary"></input>
+    </form>
+</div>
+
+{% endblock %}
