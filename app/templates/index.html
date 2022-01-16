@@ -44,13 +44,16 @@
         <label for="exampleInputEmail1">Email address</label>
         <input type="email" name="student-email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" required>
         <small id="emailHelp" class="form-text text-muted">Mail ID which you gave to your Class Incharge</small>
+
         {% with messages = get_flashed_messages() %}  
-        {% if messages %}  
-                {% for message in messages %}  
-                    <p>{{ message }}</p>  
-                {% endfor %}  
-        {% endif %}  
-        {% endwith %} 
+            {% if messages %}  
+                    {% for message in messages %}
+                    <div class="alert alert-danger" role="alert"><p>{{ message }}</p> </div>
+                    {% endfor %}
+                
+            {% endif %}  
+        {% endwith %}
+        
     </div>
     <input type="submit" value="Submit" class="btn btn-primary"></input>
     <a  href="{{ url_for('teacher_login') }}">

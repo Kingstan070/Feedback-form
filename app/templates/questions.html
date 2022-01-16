@@ -11,9 +11,19 @@
         list-style-type: none;
     }
 
+    .question{
+        margin-left: -1em;
+    }
+
+    .btn{
+        margin-left: 1em;
+        margin-top: 1em;
+    }
+
     .form-list{
         margin-left: 2em;
         margin-top: 0.5em;
+        padding: 0.5em;
     }
 </style>
 {% endblock %}
@@ -48,25 +58,18 @@
 <div class="quiz-form container">
     <form name="quiz" method="post" name="buttons" id="quiz" class="form-group">
 
-        <li><div class="question lead">alakdj alsdfjl aldfjk </div></li>
-        <div class="form-list">
-            <input class="form-check-input" type="radio" name="group1" value="wrong"> Josh<br>
-            <input class="form-check-input" type="radio" name="group1" value="wrong"> Amanda<br>
-            <input class="form-check-input" type="radio" name="group1" value="correct"> Josh y Amanda<hr>
-        </div>
-        <li><div class="question lead">asdkjfla ldfkjasl foasidjfl</div></li>
-        <div class="form-list">
-            <input class="form-check-input" type="radio" name="group2" value="wrong">Un familia amigo<br>
-            <input class="form-check-input" type="radio" name="group2" value="wrong">Un gato<br>
-            <input class="form-check-input" type="radio" name="group2" value="correct">Un amable joven de la agencia de bienes raíces<hr>
-        </div>
-        <li><div class="question lead">laksdf laksdf lkasdfl laskdjf</div></li>
-        <div class="form-list">
-            <input class="form-check-input" type="radio" name="group3" value="wrong">Josh<br>
-            <input class="form-check-input" type="radio" name="group3" value="wrong"> Petey<br>
-            <input class="form-check-input" type="radio" name="group3" value="correct" >Josh y Petey<hr>    
-        </div>
+        {% for question in questions %}
+            <div class="form-list">
+                <li><div class="question lead">{{ question[1] }}</div></li>
+                {% for i in range(2,5) %}
+                    <input class="form-check-input" type="radio" name="{{ question[0] }}" value="{{ question[i].split(':')[1] }}"">
+                        {{ question[i].split(':')[0] }}
+                    <br>
+                {% endfor %}
+            </div>
+        {% endfor %}
         <input type="submit" value="Submit" class="btn btn-primary"></input>
+        
     </form>
 </div>
 

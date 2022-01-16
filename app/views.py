@@ -1,6 +1,7 @@
 from . import app
 from flask import render_template, url_for, request, session, redirect, flash
 from .models import create_db, check_emailid, get_student_values
+from .utils import get_question
 
 @app.route('/', methods=['GET','POST'])
 def index():
@@ -17,9 +18,10 @@ def index():
             session['usr-name'] = get_student_values(usr_mail)[1] # setting user name to session for further use
             if get_student_values(usr_mail)[3] == 0:
                 #If the student have not submited any feedBack
+                print(get_question())
                 return redirect(url_for('questions'))
             else:
-                return render_template('exitpage.html', usr=session['usr-name'])
+                return render_template('exitpage.html')
         else:
             #Flashing message
             flash('Email ID not found !','error')
@@ -43,6 +45,10 @@ def questions():
     '''
     if session["usr-name"]:
         usr_name = session["usr-name"]
-        return render_template('questions.html', usr=usr_name)
+        return render_template('questions.html', usr=usr_name, questions=get_question() )
     else:
         return redirect(url_for('index'))
+
+@app.route('/question/submin', methods=['POST'])
+def question_submit():
+    pass
