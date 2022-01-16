@@ -74,7 +74,7 @@ def check_emailid(email):
             cur.close()
             db.close()
             print("MySQL connection is closed")
-        return (result, data[1])
+        return result
 
 def get_student_values(email):
     '''

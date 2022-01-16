@@ -12,10 +12,9 @@ def index():
     if request.method == "POST":
         usr_mail = request.form["student-email"]
         session['usr-mail'] = usr_mail
-        check = check_emailid(usr_mail)
-        if check[0]:
+        if check_emailid(usr_mail):
             #checks whether the user have already answered the feedbacks
-            session['usr-name'] = check[1] # setting user name to session for further use
+            session['usr-name'] = get_student_values(usr_mail)[1] # setting user name to session for further use
             if get_student_values(usr_mail)[3] == 0:
                 #If the student have not submited any feedBack
                 return redirect(url_for('questions'))
