@@ -1,4 +1,4 @@
-# Feedback-form
+# Feedback-form (basic structure)
 Feedback form made using python-flask framework and mySQL database
 
 ## Installation 
