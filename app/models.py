@@ -26,7 +26,7 @@ def create_db():
         LAST_SEEN VARCHAR(24) );
         ''')
 
-        print("Created successfully !!!!!!!!!!!!!!!!!!!!!!!!!!")
+        print("DATABASE AND TABLE Created successfully !!!!!!!!!!!!!!!!!!!!!!!!!!")
     except mysql.connector.Error as error:
         print("Failed to create table in MySQL: {}".format(error))
     finally:
@@ -103,3 +103,18 @@ def get_student_values(email):
             db.close()
             print("MySQL connection is closed")
         return (data)
+
+def put_scoreNtime(email, score, time):
+    '''
+    Args:
+        email (str) mail id of the studnet
+        score (int) score calculated after the questionarie
+        time (str) the time when the student submitted his answers
+    
+    Fucntion:
+        Stores the score and time in the database
+
+    Returns:
+        None
+    '''
+    pass

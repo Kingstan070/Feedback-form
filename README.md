@@ -1,5 +1,5 @@
 # Feedback-form
-Feedback form made using python-flask framework
+Feedback form made using python-flask framework and mySQL database
 
 ## Installation 
 The system should have python installed with version higher than 3.9 with pip
@@ -27,3 +27,4 @@ python3 -m run
 ```
 py -m run
 ```
+p.s. any changes regarding the config should be made in `app/__init__.py` file since the config.py in still on development

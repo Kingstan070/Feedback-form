@@ -18,7 +18,6 @@ def index():
             session['usr-name'] = get_student_values(usr_mail)[1] # setting user name to session for further use
             if get_student_values(usr_mail)[3] == 0:
                 #If the student have not submited any feedBack
-                print(get_question())
                 return redirect(url_for('questions'))
             else:
                 return render_template('exitpage.html', usr=session['usr-name'])
@@ -52,5 +51,4 @@ def questions():
 @app.route('/question/submin', methods=['POST'])
 def question_submit():
     if request.method == "POST":
-        print(dict(request.form))
         return render_template('exitpage.html', usr=session['usr-name'])
