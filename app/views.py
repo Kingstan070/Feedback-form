@@ -21,7 +21,7 @@ def index():
                 print(get_question())
                 return redirect(url_for('questions'))
             else:
-                return render_template('exitpage.html')
+                return render_template('exitpage.html', usr=session['usr-name'])
         else:
             #Flashing message
             flash('Email ID not found !','error')
@@ -51,4 +51,6 @@ def questions():
 
 @app.route('/question/submin', methods=['POST'])
 def question_submit():
-    pass
+    if request.method == "POST":
+        print(dict(request.form))
+        return render_template('exitpage.html', usr=session['usr-name'])

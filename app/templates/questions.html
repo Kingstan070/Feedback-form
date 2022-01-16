@@ -56,7 +56,7 @@
 
 {% block content %}
 <div class="quiz-form container">
-    <form name="quiz" method="post" name="buttons" id="quiz" class="form-group">
+    <form name="quiz" action="{{ url_for('question_submit') }}" method="post" name="buttons" id="quiz" class="form-group">
 
         {% for question in questions %}
             <div class="form-list">
@@ -69,7 +69,7 @@
             </div>
         {% endfor %}
         <input type="submit" value="Submit" class="btn btn-primary"></input>
-        
+
     </form>
 </div>
 
