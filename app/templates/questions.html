@@ -62,7 +62,7 @@
             <div class="form-list">
                 <li><div class="question lead">{{ question[1] }}</div></li>
                 {% for i in range(2,5) %}
-                    <input class="form-check-input" type="radio" name="{{ question[0] }}" value="{{ question[i].split(':')[1] }}"">
+                    <input class="form-check-input" type="radio" name="{{ question[0] }}" value="{{ question[i].split(':')[1] }}" required>
                         {{ question[i].split(':')[0] }}
                     <br>
                 {% endfor %}
