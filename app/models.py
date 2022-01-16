@@ -75,3 +75,31 @@ def check_emailid(email):
             db.close()
             print("MySQL connection is closed")
         return (result, data[1])
+
+def get_student_values(email):
+    '''
+    Args:
+        email (str) the email id of the user
+    Returns:
+        (tuple) containing the other data
+    '''
+    try:
+        db = mysql.connector.connect(host= dbd.host,
+                                    user = dbd.user,
+                                    password = dbd.password,
+                                    port = dbd.port)
+                                    # database= dbd.database)
+
+        cur = db.cursor()
+        cur.execute(f'USE {dbd.database};')
+        # Risk of SQL Injection attacks
+        cur.execute(f'''SELECT * FROM STUDENTS WHERE EMAIL="{email}";''')
+        data = cur.fetchone()
+    except mysql.connector.Error as error:
+        print(error)
+    finally:
+        if db.is_connected():
+            cur.close()
+            db.close()
+            print("MySQL connection is closed")
+        return (data)

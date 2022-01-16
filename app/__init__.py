@@ -7,7 +7,7 @@ from .config import DB_config
 app = Flask(__name__)
 
 #setting all config keys
-app.config['SECRET_KEY'] = 'hardtoguess'
+app.config['SECRET_KEY'] = 'Hard_guess_string_but_not_that_hard'
 
 #   data base details
 dbd = DB_config(host="localhost",

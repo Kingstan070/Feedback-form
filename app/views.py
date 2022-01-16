@@ -1,6 +1,6 @@
 from . import app
 from flask import render_template, url_for, request, session, redirect, flash
-from .models import create_db, check_emailid
+from .models import create_db, check_emailid, get_student_values
 
 @app.route('/', methods=['GET','POST'])
 def index():
@@ -16,7 +16,11 @@ def index():
         if check[0]:
             #checks whether the user have already answered the feedbacks
             session['usr-name'] = check[1] # setting user name to session for further use
-            return redirect(url_for('questions'))
+            if get_student_values(usr_mail)[3] == 0:
+                #If the student have not submited any feedBack
+                return redirect(url_for('questions'))
+            else:
+                return render_template('exitpage.html', usr=session['usr-name'])
         else:
             #Flashing message
             flash('Email ID not found !','error')
